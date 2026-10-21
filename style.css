@@ -1,0 +1,161 @@
+:root {
+  --bg: #faf6f1;
+  --text: #3b3430;
+  --accent: #b07d62;
+  --soft: #efe5da;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.85;
+}
+
+.letter {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18vh 24px 20vh;
+}
+
+.to {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 2.5rem;
+}
+
+.opening {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0 0 4rem;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 4rem;
+  border-radius: 12px;
+}
+
+section { margin-bottom: 4rem; }
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+
+p { margin: 0 0 1.2rem; }
+
+ul.commitments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.commitments li {
+  background: var(--soft);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+.closing { font-style: italic; }
+
+.signature {
+  margin-top: 3rem;
+}
+
+.signature .signoff { margin-bottom: 0.2rem; }
+
+.signature .name {
+  font-family: "Caveat", cursive;
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.signature .date {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+}
+
+/* Bowing scene */
+.scene {
+  margin: 0 0 4rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.scene svg {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.scene .nm {
+  font-family: "Caveat", cursive;
+  font-size: 24px;
+  fill: var(--accent);
+}
+
+.scene-caption {
+  font-style: italic;
+  margin: 0.5rem 0 0;
+}
+
+.boy-upper {
+  transform-origin: 120px 160px;
+}
+
+/* Bow slowly, hold, then rise (about 8 seconds, plays once) */
+.scene.play .boy-upper {
+  animation: bow 8s ease-in-out forwards;
+}
+
+@keyframes bow {
+  0%   { transform: rotate(0deg); }
+  30%  { transform: rotate(38deg); }
+  72%  { transform: rotate(38deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene.play .boy-upper { animation: none; transform: rotate(30deg); }
+}
+
+/* Gentle fade-in on scroll */
+.fade {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.05rem; }
+  .opening { font-size: 1.35rem; }
+}
